@@ -1,6 +1,11 @@
 # GNN_charge_MD
 
-Graph Neural Network for charge-annotated Molecular Dynamics (MD) simulations. This repository contains the pipeline for building charge-decorated graphs from atomic structures and training GNN models to predict charge-related properties.
+Graph Neural Network for charge-annotated Molecular Dynamics (MD) simulations.
+Predicted charges from the GNN will be combined with the LJ potential to account for long range interaction. 
+It is a modified approach to NN interatomic potential. Rather than directly training on the Forces and Energies, we are hoping for a boost in accuracy of the LJ potential. 
+This approach has the following advantages:
+1) Since the Charge Prediction using GNN has been show to work very accurately across different materials. This should act like a universal NN potential with minimal training.
+2) Conventional NN potentials perform poorly outside the training regime. Verification and fine-tuning these potentials themselves is a data-intensive task. In the modified LJ approach, a single DFT snapshot and charge analysis can ascertain whether the DFT-level colonic interactions are being properly taken into account. 
 
 ## 📁 Repository Structure
 
@@ -8,10 +13,11 @@ Graph Neural Network for charge-annotated Molecular Dynamics (MD) simulations. T
   Contains input datasets, such as atomic structure files (e.g., CIF/POSCAR) and charge data.
 
 - [`graph_build/`](./graph_build)  
-  Utilities for constructing graphs from structures, including feature extraction for nodes (e.g., partial charges) and edges (e.g., inverse distances).
+  Utilities for constructing graphs from structures, including feature extraction for nodes (e.g., partial charges) and edges.
+   Pymatgen ISSAEVNN class is used to create the adjacency matrix(bond table).
 
 - [`utils/`](./utils)  
-  Helper functions and modules for preprocessing, configuration, and general utilities used across the project.
+  Contains the files for featurization and scaling 
 
 - [`results/`](./results)  
   Directory for storing trained models, evaluation outputs, visualizations, or logs.
