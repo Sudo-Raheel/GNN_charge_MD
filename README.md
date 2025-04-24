@@ -5,7 +5,7 @@ Predicted charges from the GNN will be combined with the LJ potential to account
 It is a modified approach to NN interatomic potential. Rather than directly training on the Forces and Energies, we are hoping for a boost in accuracy of the LJ potential. 
 This approach has the following advantages:
 1) Since the Charge Prediction using GNN has been show to work very accurately across different materials. This should act like a universal NN potential with minimal training.
-2) Conventional NN potentials perform poorly outside the training regime. Verification and fine-tuning these potentials themselves is a data-intensive task. In the modified LJ approach, a single DFT snapshot and charge analysis can ascertain whether the DFT-level colonic interactions are being properly taken into account.
+2) Conventional NN potentials perform poorly outside the training regime. Verification and fine-tuning these potentials themselves is a data-intensive task. In the modified LJ approach, a single DFT snapshot and charge analysis can ascertain whether the DFT-level coulombic interactions are being properly taken into account.
 
 ## ToDo 
 Right now repository contains codes related to GNN for predicting partial charges, Things that are still needed are mentioned below 
