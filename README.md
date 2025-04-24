@@ -36,7 +36,9 @@ Right now repository contains codes related to GNN for predicting partial charge
 ## 📜 Scripts
 
 - [`main.py`](./main.py)  
-  Entry point script to run the training and evaluation pipeline for the GNN model.
+  A main function controls multiple aspects of the code 
+  gb.py is called to create graphs(edges,node_ftrs and target quantity(charges)) for all crystals in ./data/ddec_xtals . This data is stored in a pickled format in ./data itself
+  Afterwards the pickled data is loaded and fed to train() function which calls the GNN model (model_rh.py) . 
 
 - [`model_rh.py`](./model_rh.py)  
   Defines the model architecture and training logic for the GNN.
